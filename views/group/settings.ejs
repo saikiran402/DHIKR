@@ -1,0 +1,79 @@
+<% include ../partials/header %>
+<% include ./partials/header %>
+
+<body class="bg-light">
+  <div class="container">
+    <div class="py-5 text-center">
+      <img class="d-block mx-auto mb-4" src="/images/prayer-beads.svg" alt="" width="72" height="72">
+      <h2>Edit your group </h2>
+    </div>
+    <div class="col-md order-md-1">
+      <h4 class="mb-3">Edit</h4>
+      <form class="needs-validation" method="POST" action="/group/<%=group._id%>/edit">
+
+
+        <div class="mb-3">
+          <label for="username">Username</label>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">@</span>
+            </div>
+            <input type="text" class="form-control"  placeholder="<%= currentUser.username %>" disabled>
+            <div class="invalid-feedback" style="width: 100%;">
+              Your username is required.
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label for="lastName">Group Name</label>
+            <input type="text" class="form-control" name="name" placeholder="<%=group.name%>" value="<%=group.name%>" required readonly>
+          </div>
+          
+        </div>
+
+        <div class="mb-3">
+          <label for="email">Email</label>
+          <input type="email" class="form-control" name="email" value="<%=group.email%>" required >
+          <div class="invalid-feedback">
+            Please enter a valid email address for updates.
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label for="type">Type</label>
+            <input type="email" class="form-control" name="type" placeholder="<%=group.type%>" value="<%=group.type%>" readonly>
+          
+          
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="sets">Sets</label>
+            <input type="text" class="form-control" name="sets" value="<%=group.sets%>"  required>
+            <div class="invalid-feedback">
+              Please provide a valid number of set.
+            </div>
+          </div>
+
+        </div>
+
+        <div class="mb-3">
+          <label for="address2">Goal</label>
+          <input type="text" class="form-control" name="goal" value="<%=group.goal%>" required>
+        </div>
+
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Update</button>
+    </div>
+  </div>
+
+
+  </div>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script>window.jQuery || document.write('<script src="https://getbootstrap.com/docs/4.2/assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+  <script src="https://getbootstrap.com/docs/4.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-zDnhMsjVZfS3hiP7oCBRmfjkQC4fzxVxFhBx8Hkz2aZX8gEvA/jsP3eXRCvzTofP"
+    crossorigin="anonymous"></script>
+  <script src="https://getbootstrap.com/docs/4.2/examples/checkout/form-validation.js"></script>
+</body>
+
+<% include ../partials/footer %>
